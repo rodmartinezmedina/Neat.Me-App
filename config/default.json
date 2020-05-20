@@ -1,0 +1,3 @@
+{
+  "mongoURI": "mongodb+srv://rodrigo:lamanodeperon83@mern-agenda-app-ibjwk.mongodb.net/test?retryWrites=true&w=majority"
+}

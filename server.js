@@ -1,10 +1,14 @@
 const express = require("express");
+const connectDB = require("./config/db");
+
 const app = express();
+
+//Connect DB
+connectDB();
 
 app.get("/", (req, res) => res.json("Welcome to the Neat.ME API"));
 
 ///Define Routes
-
 app.use("/api/users", require("./routes/users"));
 app.use("/api/auth", require("./routes/auth"));
 app.use("/api/contacts", require("./routes/contacts"));
