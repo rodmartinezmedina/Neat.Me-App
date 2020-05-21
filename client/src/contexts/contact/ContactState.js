@@ -16,22 +16,22 @@ const ContactState = (props) => {
   const initialState = {
     contacts: [
       {
-        type: null,
-        _id: "5ec5a6d86b75417021f541b4",
+        type: "professional",
+        id: 1,
         name: "Batman Cheto",
         email: "robinputo@gmail.com",
         phone: "666-456-789",
       },
       {
         type: "personal",
-        _id: "5ec5a19698f1216ad97ce6ce",
+        id: 2,
         name: "Joe Mangarelo",
         email: "joemangarelo@gmail.com",
         phone: "222-456-789",
       },
       {
         type: "personal",
-        _id: "5ec5a17198f1216ad97ce6cd",
+        id: 3,
         name: "Lio Messi",
         email: "liomessi@gmail.com",
         phone: "333-456-789",

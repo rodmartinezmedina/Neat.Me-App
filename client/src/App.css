@@ -5,10 +5,10 @@
   --primary-color: #7f8688;
   --secondary-color: #d7be69;
   --third-color: #dec79b;
-  /* --fourth-color: #acbfe6; */
+  --complimentary-color: #9bb2de;
   --dark-color: #18181e;
-  --light-color: #929d9e;
-  --danger-color: #e7505f;
+  --light-color: #e7e5e5;
+  --danger-color: #d6192c;
   --success-color: #459458;
 }
 
@@ -122,7 +122,7 @@ i {
   padding: 1rem;
   border: var(--secondary-color) 1px dotted;
   margin: 0.7rem 0;
-  box-shadow: -3px 3px 4px rgb(190, 190, 190);
+  box-shadow: -2px 2px 4px rgb(199, 199, 199);
 }
 
 /* List */
@@ -273,15 +273,15 @@ i {
 .badge-primary,
 .alert-primary {
   background: var(--primary-color);
-  color: var(--third-color);
+  color: white;
 }
 
 .btn-secondary,
 .bg-secondary,
 .badge-secondary,
 .alert-secondary {
-  background: var(--secondary-color);
-  color: var(--third-color);
+  background: var(--primary-color);
+  color: white;
 }
 
 .btn-third,
@@ -297,7 +297,11 @@ i {
 .badge-light,
 .alert-light {
   background: var(--light-color);
-  color: #333;
+  color: var(--dark-color);
+}
+
+.badge-light-2 {
+  color: var(--primary-color);
 }
 
 .btn-dark,
@@ -424,6 +428,7 @@ table th {
 
 /* Footer */
 .footer {
+  background-color: var(--third-color);
   color: var(--dark-color);
   display: flex;
   justify-content: center;
