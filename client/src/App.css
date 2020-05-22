@@ -341,6 +341,7 @@ i {
   opacity: 0.8;
   color: var(--dark-color);
   background-color: var(--third-color);
+  box-shadow: -3px 3px 4px rgb(141, 141, 141);
 }
 
 .bg-light,
