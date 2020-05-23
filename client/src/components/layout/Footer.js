@@ -20,6 +20,7 @@ const Footer = ({ iconGithub, iconLinkedin }) => {
             <a
               href="https://www.linkedin.com/in/rodrigo-martinez-medina/"
               target="_blank"
+              rel="noopener noreferrer"
             >
               <i className={iconLinkedin} /> Contact me on Linkedin
             </a>

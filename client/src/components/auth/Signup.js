@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
-function signup() {
-  const [user, setUser] = setState({
+function Signup() {
+  const [user, setUser] = useState({
     name: "",
     email: "",
     password: "",
@@ -61,4 +61,4 @@ function signup() {
   );
 }
 
-export default signup;
+export default Signup;
