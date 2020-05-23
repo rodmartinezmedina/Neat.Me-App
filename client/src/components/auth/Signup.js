@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 function Signup() {
-  const [user, setUser] = setState({
+  const [user, setUser] = useState({
     name: "",
     email: "",
     password: "",

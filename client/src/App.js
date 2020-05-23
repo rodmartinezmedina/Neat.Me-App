@@ -5,6 +5,7 @@ import Navbar from "../src/components/layout/Navbar";
 import Footer from "../src/components/layout/Footer";
 import Home from "../src/components/pages/Home";
 import About from "../src/components/pages/About";
+import Signup from "../src/components/auth/Signup";
 
 import ContactState from "./contexts/contact/ContactState";
 
