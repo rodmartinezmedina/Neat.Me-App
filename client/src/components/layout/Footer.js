@@ -24,6 +24,9 @@ const Footer = ({ iconGithub, iconLinkedin }) => {
               <i className={iconLinkedin} /> Contact me on Linkedin
             </a>
           </li>
+          <li>
+            <Link to="/about">About Me & Neat.ME</Link>
+          </li>
           <li>@rodmartinezmedina</li>
         </ul>
       </nav>
