@@ -1,15 +1,15 @@
 import React, { useReducer } from "react";
+import { v4 as uuid } from "uuid";
 import AuthContext from "./authContext";
 import authReducer from "./authReducer";
 import {
-  REGISTER_SUCCESS,
-  REGISTER_FAIL,
-  USER_LOADED,
-  AUTH_ERROR,
-  LOGIN_SUCCESS,
-  LOGIN_FAIL,
-  LOGOUT,
-  CLEAR_ERRORS,
+  ADD_CONTACT,
+  DELETE_CONTACT,
+  SET_CURRENT,
+  CLEAR_CURRENT,
+  UPDATE_CONTACT,
+  FILTER_CONTACTS,
+  CLEAR_FILTER,
 } from "../types";
 
 const AuthState = (props) => {
@@ -22,16 +22,6 @@ const AuthState = (props) => {
   };
 
   const [state, dispatch] = useReducer(authReducer, initialState);
-
-  //Load User (check which user is logged in)
-
-  //Register USer
-
-  //Login User
-
-  //Logout
-
-  //Clear Errors (clear errors in the state)
 
   return (
     <AuthContext.Provider

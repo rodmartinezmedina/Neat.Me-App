@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
-function signup() {
-  const [user, setUser] = setState({
+function Signup() {
+  const [user, setUser] = useState({
     name: "",
     email: "",
     password: "",
@@ -45,7 +45,7 @@ function signup() {
         <div className="form-group">
           <label htmlFor="password2">Confirm Password</label>
           <input
-            type="password2"
+            type="password"
             name="password2"
             value={password2}
             onChange={onChange}
@@ -61,4 +61,4 @@ function signup() {
   );
 }
 
-export default signup;
+export default Signup;
