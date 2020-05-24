@@ -17,10 +17,15 @@ const Login = (props) => {
       props.history.push("/");
     }
 
-    if (error === "Invalid Credentials") {
+    if (error === "Invalid Credentials. Wrong Email") {
       setAlert(error, "danger");
       clearErrors();
     }
+    if (error === "Invalid Credentials. Wrong password") {
+      setAlert(error, "danger");
+      clearErrors();
+    }
+
     // eslint-disable-next-line
   }, [error, isAuthenticated, props.history]);
 
@@ -37,7 +42,7 @@ const Login = (props) => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    if (email === "" || password === "") {
+    if (email === " " || password === " ") {
       setAlert("Please fill in all fields", "danger");
     } else {
       login({
