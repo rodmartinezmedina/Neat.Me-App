@@ -13,7 +13,13 @@ import {
 } from "../types";
 
 const AuthState = (props) => {
-  const initialState = {};
+  const initialState = {
+    token: localStorage.getItem("token"),
+    isAuthenticated: null,
+    loading: true,
+    user: null,
+    error: null,
+  };
 
   const [state, dispatch] = useReducer(authReducer, initialState);
 
