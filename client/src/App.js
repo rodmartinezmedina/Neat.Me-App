@@ -8,6 +8,7 @@ import About from "../src/components/pages/About";
 import Signup from "../src/components/auth/Signup";
 
 import ContactState from "./contexts/contact/ContactState";
+import AuthState from "./contexts/auth/AuthState";
 
 const App = () => {
   return (
