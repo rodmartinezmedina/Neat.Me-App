@@ -3,12 +3,8 @@ import axios from "axios";
 import { v4 as uuid } from "uuid";
 import AuthContext from "./authContext";
 import authReducer from "./authReducer";
-<<<<<<< HEAD
-// import setAuthToken from "../../utils/setAuthToken";
-=======
 import setAuthToken from "../../utils/setAuthToken";
 
->>>>>>> authentication2
 import {
   ADD_CONTACT,
   DELETE_CONTACT,
