@@ -51,8 +51,9 @@ i {
 .container {
   max-width: 1100px;
   margin: auto;
-  margin-top: 6rem;
-  overflow: hidden;
+  margin-top: 8rem;
+  margin-bottom: 200px;
+  overflow: initial;
   padding: 0 2rem;
 }
 
@@ -476,7 +477,7 @@ table th {
 }; */
 
 /* Mobile Styles */
-@media (max-width: 700px) {
+@media screen and (max-width: 700px) {
   .hide-sm {
     display: none;
   }
