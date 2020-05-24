@@ -6,6 +6,7 @@ import Footer from "../src/components/layout/Footer";
 import Home from "../src/components/pages/Home";
 import About from "../src/components/pages/About";
 import Signup from "../src/components/auth/Signup";
+import Login from "../src/components/auth/Login";
 
 import ContactState from "./contexts/contact/ContactState";
 import AuthState from "./contexts/auth/AuthState";
@@ -22,6 +23,7 @@ const App = () => {
                 <Route exact path="/" component={Home} />
                 <Route exact path="/about" component={About} />
                 <Route exact path="/signup" component={Signup} />
+                <Route exact path="/login" component={Login} />
               </Switch>
             </div>
             <Footer className="footer" />

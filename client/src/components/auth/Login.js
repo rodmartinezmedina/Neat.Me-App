@@ -1,14 +1,12 @@
 import React, { useState } from "react";
 
-function Signup() {
+function Login() {
   const [user, setUser] = useState({
-    name: "",
     email: "",
     password: "",
-    password2: "",
   });
 
-  const { name, email, password, password2 } = user;
+  const { email, password } = user;
 
   const onChange = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value });
@@ -16,19 +14,15 @@ function Signup() {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    console.log(`Signup submit`);
+    console.log(`Login submit`);
   };
 
   return (
     <div className="form-container">
       <h1>
-        Account <span className="text-primary">Signup</span>
+        Account <span className="text-primary">Login</span>
       </h1>
       <form onSubmit={onSubmit}>
-        <div className="form-group">
-          <label htmlFor="name">Name</label>
-          <input type="text" name="name" value={name} onChange={onChange} />
-        </div>
         <div className="form-group">
           <label htmlFor="email">Email</label>
           <input type="email" name="email" value={email} onChange={onChange} />
@@ -42,18 +36,10 @@ function Signup() {
             onChange={onChange}
           />
         </div>
-        <div className="form-group">
-          <label htmlFor="password2">Confirm Password</label>
-          <input
-            type="password"
-            name="password2"
-            value={password2}
-            onChange={onChange}
-          />
-        </div>
+
         <input
           type="submit"
-          value="Signup"
+          value="Login"
           className="btn btn-primary btn-block"
         />
       </form>
@@ -61,4 +47,4 @@ function Signup() {
   );
 }
 
-export default Signup;
+export default Login;
