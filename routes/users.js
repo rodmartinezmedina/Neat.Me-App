@@ -7,17 +7,17 @@ const { check, validationResult } = require("express-validator");
 
 const User = require("../models/UserModel");
 
-//@route    POST  api/users
-//@desc     Register a User
-//@access   Public
+// @route     POST api/users
+// @desc      Regiter a user
+// @access    Public
 router.post(
   "/",
   [
-    check("name", "Name is required").not().isEmpty(),
-    check("email", "Please include a valid email"),
+    check("name", "Please add name").not().isEmpty(),
+    check("email", "Please include a valid email").isEmail(),
     check(
       "password",
-      "Please enter a password with at least 6 characters"
+      "Please enter a password with 6 or more characters"
     ).isLength({ min: 6 }),
   ],
   async (req, res) => {
@@ -29,7 +29,7 @@ router.post(
     const { name, email, password } = req.body;
 
     try {
-      let user = await User.findOne({ email: email });
+      let user = await User.findOne({ email });
 
       if (user) {
         return res.status(400).json({ msg: "User already exists" });
@@ -57,7 +57,7 @@ router.post(
         payload,
         config.get("jwtSecret"),
         {
-          expiresIn: 7200,
+          expiresIn: 360000,
         },
         (err, token) => {
           if (err) throw err;
@@ -66,7 +66,7 @@ router.post(
       );
     } catch (err) {
       console.error(err.message);
-      res.status(500).send("Server error...");
+      res.status(500).send("Server Error");
     }
   }
 );
