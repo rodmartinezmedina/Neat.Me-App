@@ -7,11 +7,6 @@ export const FILTER_CONTACTS = "FILTER_CONTACTS";
 export const CLEAR_FILTER = "CLEAR_FILTER";
 export const SET_ALERT = "SET_ALERT";
 export const REMOVE_ALERT = "REMOVE_ALERT";
-<<<<<<< HEAD
-
-//login types
-=======
->>>>>>> authentication2
 export const REGISTER_SUCCESS = "REGISTER_SUCCESS";
 export const REGISTER_FAIL = "REGISTER_FAILS";
 export const USER_LOADED = "USER_LOADED";
