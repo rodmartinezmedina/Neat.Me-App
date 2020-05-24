@@ -1,9 +1,12 @@
 import React, { useState, useContext, useEffect } from "react";
 import ContactContext from "../../contexts/contact/contactContext";
+import AlertContext from "../../contexts/alert/alertContext";
 
 function ContactForm() {
+  const alertContext = useContext(AlertContext);
   const contactContext = useContext(ContactContext);
 
+  const { setAlert } = alertContext;
   const { addContact, updateContact, clearCurrent, current } = contactContext;
 
   useEffect(() => {
