@@ -1,10 +1,29 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import AlertContext from "../../contexts/alert/alertContext";
+import AuthContext from "../../contexts/auth/authContext";
 
-function Signup() {
+const Signup = (props) => {
   const alertContext = useContext(AlertContext);
+  const authContext = useContext(AuthContext);
 
   const { setAlert } = alertContext;
+  const { signup, error, clearErrors, isAuthenticated } = authContext;
+
+  //compares the text with the text from the original error.
+  // in a larger application I should give an id to each error. See how tos for that.
+  //maybe send an id from the backend
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      props.history.push("/");
+    }
+
+    if (error === "User already exists") {
+      setAlert(error, "danger");
+      clearErrors();
+    }
+    // eslint-disable-next-line
+  }, [error, isAuthenticated, props.history]);
 
   const [user, setUser] = useState({
     name: "",
@@ -26,7 +45,11 @@ function Signup() {
     } else if (password !== password2) {
       setAlert(`Passwords do not match`);
     } else {
-      console.log(`Signup submit`);
+      signup({
+        name,
+        email,
+        password,
+      });
     }
   };
 
@@ -86,6 +109,6 @@ function Signup() {
       </form>
     </div>
   );
-}
+};
 
 export default Signup;
