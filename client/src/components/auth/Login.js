@@ -1,6 +1,29 @@
-import React, { useState } from "react";
+import React, { useState, useContext, useEffect } from "react";
+import AlertContext from "../../contexts/alert/alertContext";
+import AuthContext from "../../contexts/auth/authContext";
 
-function Login() {
+const Login = (props) => {
+  const alertContext = useContext(AlertContext);
+  const authContext = useContext(AuthContext);
+
+  const { setAlert } = alertContext;
+  const { login, error, clearErrors, isAuthenticated } = authContext;
+
+  //compares the text with the text from the original error (in routes/auth)
+  // in a larger application I should give an id to each error. See how tos for that.
+  //maybe send an id from the backend
+  useEffect(() => {
+    if (isAuthenticated) {
+      props.history.push("/");
+    }
+
+    if (error === "Invalid Credentials") {
+      setAlert(error, "danger");
+      clearErrors();
+    }
+    // eslint-disable-next-line
+  }, [error, isAuthenticated, props.history]);
+
   const [user, setUser] = useState({
     email: "",
     password: "",
@@ -14,7 +37,14 @@ function Login() {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    console.log(`Login submit`);
+    if (email === "" || password === "") {
+      setAlert("Please fill in all fields", "danger");
+    } else {
+      login({
+        email,
+        password,
+      });
+    }
   };
 
   return (
@@ -25,7 +55,13 @@ function Login() {
       <form onSubmit={onSubmit}>
         <div className="form-group">
           <label htmlFor="email">Email</label>
-          <input type="email" name="email" value={email} onChange={onChange} />
+          <input
+            type="email"
+            name="email"
+            value={email}
+            onChange={onChange}
+            required
+          />
         </div>
         <div className="form-group">
           <label htmlFor="password">Password</label>
@@ -34,6 +70,7 @@ function Login() {
             name="password"
             value={password}
             onChange={onChange}
+            required
           />
         </div>
 
@@ -45,6 +82,6 @@ function Login() {
       </form>
     </div>
   );
-}
+};
 
 export default Login;
