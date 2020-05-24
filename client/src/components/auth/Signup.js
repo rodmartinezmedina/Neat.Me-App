@@ -1,10 +1,14 @@
 import React, { useState, useContext } from "react";
 import AlertContext from "../../contexts/alert/alertContext";
+import AuthContext from "../../contexts/auth/authContext";
 
 function Signup() {
   const alertContext = useContext(AlertContext);
+  const authContext = useContext(AuthContext);
 
   const { setAlert } = alertContext;
+
+  const { signup, error, clearErrors, isAuthenticated } = authContext;
 
   const [user, setUser] = useState({
     name: "",
@@ -26,7 +30,11 @@ function Signup() {
     } else if (password !== password2) {
       setAlert(`Passwords do not match`);
     } else {
-      console.log(`Signup submit`);
+      signup({
+        name,
+        email,
+        password,
+      });
     }
   };
 
