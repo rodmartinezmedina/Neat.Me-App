@@ -3,6 +3,7 @@ import axios from "axios";
 import { v4 as uuid } from "uuid";
 import AuthContext from "./authContext";
 import authReducer from "./authReducer";
+import setAuthToken from "../../utils/setAuthToken";
 
 import {
   ADD_CONTACT,
@@ -14,6 +15,9 @@ import {
   CLEAR_FILTER,
   REGISTER_SUCCESS,
   REGISTER_FAIL,
+  CLEAR_ERRORS,
+  USER_LOADED,
+  AUTH_ERROR,
 } from "../types";
 
 const AuthState = (props) => {
@@ -28,8 +32,24 @@ const AuthState = (props) => {
   const [state, dispatch] = useReducer(authReducer, initialState);
 
   //Load user
-  const loadUser = () => {
-    console.log(`load user`);
+  //TO DO : load token into global headers
+  const loadUser = async () => {
+    if (localStorage.token) {
+      setAuthToken(localStorage.token);
+    }
+
+    try {
+      const res = await axios.get("/api/auth");
+
+      dispatch({
+        type: USER_LOADED,
+        payload: res.data,
+      });
+    } catch (err) {
+      dispatch({
+        type: AUTH_ERROR,
+      });
+    }
   };
 
   //Signup user
@@ -47,6 +67,8 @@ const AuthState = (props) => {
         type: REGISTER_SUCCESS,
         payload: res.data,
       });
+
+      loadUser();
     } catch (err) {
       dispatch({
         type: REGISTER_FAIL,
@@ -69,6 +91,7 @@ const AuthState = (props) => {
 
   //Clear Errors
   const clearErrors = () => {
+    dispatch({ type: CLEAR_ERRORS });
     console.log(`clearErrors`);
   };
 
