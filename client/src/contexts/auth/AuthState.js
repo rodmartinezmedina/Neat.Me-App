@@ -24,7 +24,17 @@ const AuthState = (props) => {
   const [state, dispatch] = useReducer(authReducer, initialState);
 
   return (
-    <AuthContext.Provider value={{}}>{props.children}</AuthContext.Provider>
+    <AuthContext.Provider
+      value={{
+        token: state.token,
+        isAuthenticated: state.isAuthenticated,
+        loading: state.loading,
+        user: state.user,
+        error: state.error,
+      }}
+    >
+      {props.children}
+    </AuthContext.Provider>
   );
 };
 
