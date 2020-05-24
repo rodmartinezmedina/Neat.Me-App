@@ -9,7 +9,8 @@ const Signup = (props) => {
   const { setAlert } = alertContext;
   const { signup, error, clearErrors, isAuthenticated } = authContext;
 
-  //compares the text with the text from the original error. (in routes/auth)
+  //compares the text with the text from the original error.
+  // (in routes/USERS)
   // in a larger application I should give an id to each error. See how tos for that.
   //maybe send an id from the backend
   useEffect(() => {

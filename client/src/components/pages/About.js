@@ -4,7 +4,8 @@ const About = ({ iconGithub, iconLinkedin }) => {
   return (
     <Fragment>
       <h1> About this app </h1>
-      <p> A simple app to keep your contacts and notes in order </p>
+      <p> A simple app to keep your contacts and notes in order. </p>
+      <p>(Coming soon: notes keeper functionality)</p>
 
       <h4>Neat.ME</h4>
       <p> Version: 1.0 </p>

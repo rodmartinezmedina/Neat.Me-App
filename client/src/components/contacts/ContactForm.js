@@ -1,10 +1,22 @@
 import React, { useState, useContext, useEffect } from "react";
 import ContactContext from "../../contexts/contact/contactContext";
+import AlertContext from "../../contexts/alert/alertContext";
+import AuthContext from "../../contexts/auth/authContext";
 
 function ContactForm() {
+  const alertContext = useContext(AlertContext);
   const contactContext = useContext(ContactContext);
+  const authContext = useContext(AuthContext);
 
-  const { addContact, updateContact, clearCurrent, current } = contactContext;
+  const { clearErrors } = authContext;
+  const { setAlert } = alertContext;
+  const {
+    error,
+    addContact,
+    updateContact,
+    clearCurrent,
+    current,
+  } = contactContext;
 
   useEffect(() => {
     if (current !== null) {
@@ -17,7 +29,7 @@ function ContactForm() {
         type: "personal",
       });
     }
-  }, [contactContext, current]);
+  }, [error, authContext, contactContext, clearErrors, current]);
 
   const [contact, setContact] = useState({
     name: "",
@@ -33,7 +45,9 @@ function ContactForm() {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    if (current === null) {
+    if (name === "") {
+      setAlert(`Please enter all fields`, "danger");
+    } else if (current === null) {
       addContact(contact);
     } else {
       updateContact(contact);
@@ -51,6 +65,7 @@ function ContactForm() {
         <h2 className="text-primary">
           {current ? "Edit Contact" : "Add Contact"}
         </h2>
+        <p>Please enter all fields</p>
         <input
           type="text"
           placeholder="name"
