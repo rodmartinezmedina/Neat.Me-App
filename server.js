@@ -10,7 +10,7 @@ connectDB();
 //By doing this we can accepta data. Using the req.body
 app.use(express.json({ extended: false }));
 
-app.get("/", (req, res) => res.json("Welcome to the Neat.ME API"));
+// app.get("/", (req, res) => res.json("Welcome to the Neat.ME API"));
 
 ///Define Routes
 app.use("/api/users", require("./routes/users"));
