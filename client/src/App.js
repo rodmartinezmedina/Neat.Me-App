@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Navbar from "../src/components/layout/Navbar";
 import Footer from "../src/components/layout/Footer";
 import Home from "../src/components/pages/Home";
+import Welcome from "../src/components/pages/Welcome";
 import About from "../src/components/pages/About";
 import Signup from "../src/components/auth/Signup";
 import Login from "../src/components/auth/Login";
@@ -30,6 +31,7 @@ const App = () => {
               <div className="container">
                 <Alerts />
                 <Switch>
+                  <Route exact path="/welcome" component={Welcome} />
                   <PrivateRoute exact path="/" component={Home} />
                   <Route exact path="/about" component={About} />
                   <Route exact path="/signup" component={Signup} />

@@ -43,8 +43,9 @@ const Navbar = ({ title, icon }) => {
   return (
     <div className="navbar bg-dark">
       <h1>
-        <Link to="/">
+        <Link to="/welcome">
           <i className={icon} /> {title}
+          {/* <img src="images/Neat.ME.png" /> */}
         </Link>
       </h1>
       <ul>

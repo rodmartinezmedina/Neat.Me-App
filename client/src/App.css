@@ -537,3 +537,25 @@ table th {
     transition: opacity 1000ms ease-in;
   }
 }
+
+@media screen and (min-width: 700px) and (max-width: 800px) {
+  .footer ul {
+    margin-left: -10px;
+    margin-right: -10px;
+  }
+  #footer-li {
+    padding-left: 10px;
+    padding-right: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+  }
+  /* #footer-text {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+  } */
+}

@@ -7,28 +7,28 @@ const Footer = ({ iconGithub, iconLinkedin }) => {
     <div>
       <nav className="footer bg-secondary">
         <ul>
-          <li>
+          <li id="footer-li">
+            <i className={iconGithub} /> Visit my Github
             <a
+              id="footer-text"
               href="https://github.com/rodmartinezmedina"
               target="_blank"
               rel="noopener noreferrer"
-            >
-              <i className={iconGithub} /> Visit my Github
-            </a>
+            ></a>
           </li>
-          <li>
+          <li id="footer-li">
+            <i className={iconLinkedin} /> Contact me on Linkedin
             <a
+              id="footer-text"
               href="https://www.linkedin.com/in/rodrigo-martinez-medina/"
               target="_blank"
               rel="noopener noreferrer"
-            >
-              <i className={iconLinkedin} /> Contact me on Linkedin
-            </a>
+            ></a>
           </li>
-          <li>
+          <li id="footer-li">
             <Link to="/about">About Me & Neat.ME</Link>
           </li>
-          <li>@rodmartinezmedina</li>
+          <li id="footer-li">@rodmartinezmedina</li>
         </ul>
       </nav>
     </div>
