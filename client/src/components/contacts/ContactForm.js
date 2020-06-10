@@ -68,7 +68,7 @@ function ContactForm() {
         <p>Please enter all fields</p>
         <input
           type="text"
-          placeholder="name"
+          placeholder="Name"
           name="name"
           value={name}
           onChange={onChange}
