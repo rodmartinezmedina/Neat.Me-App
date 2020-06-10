@@ -68,7 +68,7 @@ function ContactForm() {
         <p>Please enter all fields</p>
         <input
           type="text"
-          placeholder="name"
+          placeholder="Name"
           name="name"
           value={name}
           onChange={onChange}
@@ -113,7 +113,7 @@ function ContactForm() {
         </div>
         {current && (
           <div>
-            <button className="btn-light btn-block" onClick={clearAll}>
+            <button className="btn btn-light btn-block" onClick={clearAll}>
               Clear
             </button>
           </div>

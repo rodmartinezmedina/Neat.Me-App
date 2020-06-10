@@ -4,12 +4,13 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Navbar from "../src/components/layout/Navbar";
 import Footer from "../src/components/layout/Footer";
 import Home from "../src/components/pages/Home";
+import Notes from "../src/components/pages/Notes";
+import Welcome from "../src/components/pages/Welcome";
 import About from "../src/components/pages/About";
 import Signup from "../src/components/auth/Signup";
 import Login from "../src/components/auth/Login";
 import Alerts from "./components/layout/Alerts";
 import PrivateRoute from "./components/routing/PrivateRoute";
-
 import ContactState from "./contexts/contact/ContactState";
 import AuthState from "./contexts/auth/AuthState";
 import AlertState from "./contexts/alert/AlertState";
@@ -30,7 +31,9 @@ const App = () => {
               <div className="container">
                 <Alerts />
                 <Switch>
+                  <Route exact path="/welcome" component={Welcome} />
                   <PrivateRoute exact path="/" component={Home} />
+                  <PrivateRoute exact path="/notes" component={Notes} />
                   <Route exact path="/about" component={About} />
                   <Route exact path="/signup" component={Signup} />
                   <Route exact path="/login" component={Login} />
