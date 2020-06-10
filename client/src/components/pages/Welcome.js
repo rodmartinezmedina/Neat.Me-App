@@ -13,16 +13,17 @@ const Home = () => {
   return (
     <div className="page-container">
       <section className="hero welcome-hero">
-        <h1 class="animated-text-enter"> Neat.Me</h1>
-        <h3> Optimize yourself.</h3>
-        <p>Keep your contacts and notes in one place</p>
-        <img
+        <div className="high-hero">
+          <h1 class="animated-text-enter"> Neat.Me</h1>
+          <h3>Keep your contacts and notes in one place</h3>
+          {/* <img
           className="hero-welcome-img"
-          src="/images/wide-rodrigo-LLD.jpg"
+          src="/images/agenda-phone-crop.jpg"
           alt="rodrigoPhoto"
-        />
+        /> */}
+        </div>
+
         <div className="low-hero">
-          <h3>Start Using Neat.ME</h3>
           <Link to="/signup" className="button with-borders-button">
             Signup
           </Link>
@@ -33,7 +34,7 @@ const Home = () => {
       </section>
 
       <section className="extra-section">
-        <h2 class="animated-text-enter"> Skills & Techs I use</h2>
+        <h2 class="animated-text-enter"> Functionalities</h2>
       </section>
     </div>
   );
