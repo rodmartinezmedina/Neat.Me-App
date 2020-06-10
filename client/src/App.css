@@ -8,7 +8,7 @@
   --complimentary-color: #9bb2de;
   --dark-color: #18181e;
   --light-color: #e7e5e5;
-  --danger-color: #d6192c;
+  --danger-color: #8f313a;
   --success-color: #459458;
 }
 
@@ -143,8 +143,8 @@ i {
 .bg-secondary,
 .badge-secondary,
 .alert-secondary {
-  background: var(--primary-color);
-  color: white;
+  background: var(--secondary-color);
+  color: var(--dark-color);
 }
 
 .btn-third,
@@ -172,7 +172,7 @@ i {
 .badge-dark,
 .alert-dark {
   background: var(--dark-color);
-  color: var(--third-color);
+  color: var(--secondary-color);
 }
 
 .btn-danger,

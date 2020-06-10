@@ -15,13 +15,13 @@ const ContactItem = ({ contact }) => {
   };
 
   return (
-    <div className="card bg-light">
+    <div className="card bg-dark">
       <h3 className="bg text-left">
         {name}
         <span
           style={{ float: "right" }}
           className={
-            type === "personal" ? "badge badge-primary" : "badge badge-dark"
+            type === "personal" ? "badge badge-light" : "badge badge-secondary"
           }
         >
           {type.charAt(0).toUpperCase() + type.slice(1)}
