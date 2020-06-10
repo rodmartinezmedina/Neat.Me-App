@@ -423,16 +423,22 @@ table th {
   font-size: 26px;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (min-width: 750px) {
+  .form-container {
+    display: flex;
+  }
+  .contact-container {
+    display: flex;
+    flex-direction: row;
+  }
+
   .boxes {
-    display: "grid";
-    gridtemplatecolumns: "repeat(2, 1fr)";
-    gridgap: "1rem";
+    width: 50%;
   }
 }
 
 /* Mobile Styles */
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 750px) {
   .hide-sm {
     display: none;
   }

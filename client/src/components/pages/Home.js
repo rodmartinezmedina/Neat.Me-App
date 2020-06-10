@@ -13,11 +13,11 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="form-container">
-      <div>
+    <div className="contacts-container form-container">
+      <div className="boxes">
         <ContactForm />
       </div>
-      <div>
+      <div className="boxes">
         <ContactFilter />
         <Contacts />
       </div>
