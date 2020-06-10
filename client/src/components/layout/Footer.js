@@ -6,7 +6,7 @@ const Footer = ({ iconGithub, iconLinkedin, iconWebsite }) => {
   return (
     <div>
       <nav className="footer bg-secondary">
-        <ul>
+        <ul className>
           <li id="footer-li">
             <a
               id="footer-text"
@@ -14,7 +14,7 @@ const Footer = ({ iconGithub, iconLinkedin, iconWebsite }) => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <i className={iconGithub} /> Visit my Github
+              <i className={iconGithub} />
             </a>
           </li>
           <li id="footer-li">
@@ -24,11 +24,8 @@ const Footer = ({ iconGithub, iconLinkedin, iconWebsite }) => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <i className={iconLinkedin} /> Contact me on Linkedin
+              <i className={iconLinkedin} />
             </a>
-          </li>
-          <li id="footer-li">
-            <Link to="/about">About Me & Neat.ME</Link>
           </li>
           <li id="footer-li">
             <a
@@ -37,8 +34,11 @@ const Footer = ({ iconGithub, iconLinkedin, iconWebsite }) => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <i className={iconWebsite} /> My personal Website
+              <i className={iconWebsite} />
             </a>
+          </li>
+          <li id="footer-li">
+            <Link to="/about">About</Link>
           </li>
         </ul>
       </nav>

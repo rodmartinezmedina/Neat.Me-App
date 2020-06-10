@@ -28,7 +28,7 @@ const About = ({ iconGithub, iconLinkedin, iconWebsite }) => {
         helps me with CSS and UIs.
       </p>
       <a
-        href="https://www.linkedin.com/in/rodrigo-martinez-medina/"
+        href="https://rodmartinezmedina.dev/"
         target="_blank"
         rel="noopener noreferrer"
         className="btn btn-dark"

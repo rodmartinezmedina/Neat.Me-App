@@ -320,6 +320,9 @@ table th {
 
 .footer ul {
   display: flex;
+  padding: 0px 15px 0px 15px;
+  margin-bottom: -10px;
+  margin-top: -10px;
 }
 
 .footer a {
@@ -332,9 +335,6 @@ table th {
   padding-left: 6px;
   padding-right: -4px;
   box-shadow: -2px -2px 14px rgb(199, 199, 199);
-}
-#footer-li:hover {
-  /* color */
 }
 
 .footer .welcome span {
@@ -483,9 +483,12 @@ table th {
 
   .footer ul {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     text-align: center;
     justify-content: center;
+    padding: 0px 15px 0px 15px;
+    margin-bottom: -10px;
+    margin-top: -10px;
   }
 
   /* TRANSITIONS - REACT TRANSITION GROUP */
@@ -506,16 +509,8 @@ table th {
   }
 }
 
-@media screen and (min-width: 700px) and (max-width: 800px) {
-  .footer ul {
-    margin-left: 0px;
-    margin-right: 0px;
-  }
+@media screen and (min-width: 700px) and (max-width: 870px) {
   #footer-li {
-    padding-left: 5px;
-    padding-right: 5px;
-    display: flex;
-    flex-direction: row;
     align-items: center;
     text-align: center;
     justify-content: center;
