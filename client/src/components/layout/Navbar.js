@@ -19,6 +19,12 @@ const Navbar = ({ title, icon }) => {
   const authLinks = (
     <Fragment>
       <li>Hello {user && user.name}</li>
+      <li>
+        <Link to="/">Contacts</Link>
+      </li>
+      <li>
+        <Link to="/notes">Notes</Link>
+      </li>
 
       <li>
         <a onClick={onLogout} href="#!">
@@ -43,10 +49,17 @@ const Navbar = ({ title, icon }) => {
   return (
     <div className="navbar bg-dark">
       <h1>
-        <Link to="/welcome">
-          <i className={icon} /> {title}
-          {/* <img src="images/Neat.ME.png" /> */}
-        </Link>
+        {isAuthenticated ? (
+          <Link to="/">
+            <i className={icon} /> {title}
+            {/* <img src="images/Neat.ME.png" /> */}
+          </Link>
+        ) : (
+          <Link to="/welcome">
+            <i className={icon} /> {title}
+            {/* <img src="images/Neat.ME.png" /> */}
+          </Link>
+        )}
       </h1>
       <ul>
         {isAuthenticated ? authLinks : guestLinks}
