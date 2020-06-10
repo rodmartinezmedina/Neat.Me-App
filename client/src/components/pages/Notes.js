@@ -2,7 +2,7 @@ import React from "react";
 
 const Notes = () => {
   return (
-    <div className="form-container">
+    <div className="notes-container">
       <h1>Keep your notes organized</h1>
       <h2>Notes List functionality coming soon.....</h2>
       <ul>

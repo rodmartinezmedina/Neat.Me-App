@@ -221,10 +221,17 @@ input {
   margin: 1.2rem 0;
 }
 
+.container {
+  padding: 0 2rem;
+}
+
 .form-container {
   padding: 0 2rem;
 }
 
+.notes-container {
+  padding: 0 2rem;
+}
 .form-text {
   display: block;
   margin-top: 0.3rem;

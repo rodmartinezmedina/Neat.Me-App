@@ -54,7 +54,7 @@ const Signup = (props) => {
   };
 
   return (
-    <div className="form-container">
+    <div className="container">
       <h1>
         Account <span className="text-primary">Signup</span>
       </h1>
