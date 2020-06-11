@@ -280,6 +280,14 @@ table th {
   margin-bottom: 1rem;
 }
 
+.app-logo {
+  height: 70px;
+  align-items: center;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  margin-top: 0px;
+  margin-bottom: -13px;
+}
 .navbar ul {
   display: flex;
 }
@@ -295,7 +303,13 @@ table th {
 }
 
 .navbar h1 {
-  color: var(--third-color);
+  /* color: var(--third-color); */
+  align-items: center;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  justify-content: center;
 }
 .navbar .welcome span {
   margin-right: 0.6rem;
@@ -342,7 +356,7 @@ table th {
 }
 
 .page-container {
-  padding-bottom: 50px;
+  padding-bottom: 0px;
   text-align: center;
   width: 100%;
 }
@@ -353,6 +367,8 @@ table th {
   padding-top: 1rem;
   text-align: center;
   width: 100%;
+  margin-left: 0px;
+  margin-right: 0px;
   background-color: var(--light-color);
   color: var(--dark-color);
 }
@@ -362,9 +378,9 @@ table th {
   color: var(--light-color);
   background-color: var(--dark-color);
   width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 30px;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-bottom: 0px;
   padding-bottom: 0px;
   background: url("/images/agenda-phone-crop.jpg") no-repeat center top;
   background-size: cover;
@@ -506,6 +522,14 @@ table th {
   .item-exit-active {
     opacity: 0;
     transition: opacity 1000ms ease-in;
+  }
+  .app-logo {
+    height: 50px;
+    align-items: center;
+    padding-top: -10px;
+    padding-bottom: 0px;
+    margin-top: -10px;
+    margin-bottom: -15px;
   }
 }
 

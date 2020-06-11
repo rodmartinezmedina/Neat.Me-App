@@ -11,7 +11,7 @@ const Home = () => {
   // }, []);
 
   return (
-    <div className="page-container">
+    <>
       <section className="hero welcome-hero">
         <div className="high-hero">
           <h1 class="animated-text-enter"> Neat.Me</h1>
@@ -32,11 +32,7 @@ const Home = () => {
           </Link>
         </div>
       </section>
-
-      <section className="extra-section">
-        <h2 class="animated-text-enter"> Functionalities</h2>
-      </section>
-    </div>
+    </>
   );
 };
 
