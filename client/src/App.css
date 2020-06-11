@@ -280,6 +280,14 @@ table th {
   margin-bottom: 1rem;
 }
 
+.app-logo {
+  height: 70px;
+  align-items: center;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
 .navbar ul {
   display: flex;
 }
@@ -295,7 +303,13 @@ table th {
 }
 
 .navbar h1 {
-  color: var(--third-color);
+  /* color: var(--third-color); */
+  align-items: center;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  justify-content: center;
 }
 .navbar .welcome span {
   margin-right: 0.6rem;

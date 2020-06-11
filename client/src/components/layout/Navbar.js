@@ -51,13 +51,13 @@ const Navbar = ({ title, icon }) => {
       <h1>
         {isAuthenticated ? (
           <Link to="/">
-            <i className={icon} /> {title}
-            {/* <img src="images/Neat.ME.png" /> */}
+            {/* <i className={icon} /> {title} */}
+            <img src="/images/1-sm-bis.png" className="app-logo" />
           </Link>
         ) : (
           <Link to="/welcome">
-            <i className={icon} /> {title}
-            {/* <img src="images/Neat.ME.png" /> */}
+            {/* <i className={icon} /> {title} */}
+            <img src="images/1-sm-bis.png" className="app-logo" />
           </Link>
         )}
       </h1>
