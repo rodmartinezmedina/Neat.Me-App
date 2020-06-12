@@ -116,7 +116,7 @@ const ContactState = (props) => {
     dispatch({ type: FILTER_CONTACTS, payload: text });
   };
 
-  //Clear Filter  const filterContacts = (text) => {
+  //Clear Filter
   const clearFilter = (text) => {
     dispatch({ type: CLEAR_FILTER });
   };

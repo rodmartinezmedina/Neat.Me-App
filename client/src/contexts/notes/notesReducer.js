@@ -48,7 +48,7 @@ export default (state, action) => {
         error: null,
         current: null,
       };
-    case SET_CURRENT_NOTES:
+    case SET_CURRENT_NOTE:
       return {
         ...state,
         current: action.payload,
