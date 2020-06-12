@@ -8,7 +8,7 @@ import Spinner from "../../components/layout/Spinner";
 const Notes = () => {
   const notesContext = useContext(NotesContext);
 
-  const { notes, filteredNote, getNotes, loading } = notesContext;
+  const { notes, currentNote, filteredNote, getNotes, loading } = notesContext;
 
   useEffect(() => {
     getNotes();
@@ -21,7 +21,7 @@ const Notes = () => {
   return (
     <div className="notes-container">
       <SidebarComponent />
-      <EditorComponent />
+      {/* <EditorComponent /> */}
     </div>
   );
 };
