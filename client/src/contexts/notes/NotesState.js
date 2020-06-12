@@ -18,13 +18,13 @@ import {
 
 const NotesState = (props) => {
   const initialState = {
-    contacts: null,
+    notes: null,
     currentNote: null,
     filteredNote: null,
     error: null,
   };
 
-  const [state, dispatch] = useReducer(noteReducer, initialState);
+  const [state, dispatch] = useReducer(notesReducer, initialState);
 
   //Get Notes
   const getNotes = async () => {
@@ -39,7 +39,7 @@ const NotesState = (props) => {
   };
 
   //Add Note
-  const addNote = async (contact) => {
+  const addNote = async (note) => {
     const config = {
       headers: {
         "Content-Type": "application/json",
