@@ -14,6 +14,8 @@ import {
   CLEAR_NOTES_FILTER,
   NOTE_ERROR,
   CLEAR_NOTES,
+  ADDING_NOTE_STATE,
+  UPDATE_NOTE_TITLE,
 } from "../types";
 
 const NotesState = (props) => {
@@ -22,6 +24,7 @@ const NotesState = (props) => {
     currentNote: null,
     filteredNote: null,
     error: null,
+    addingNote: false,
   };
 
   const [state, dispatch] = useReducer(notesReducer, initialState);
@@ -57,6 +60,12 @@ const NotesState = (props) => {
     }
   };
 
+  //changes state of adding note in state
+  const addingNoteState = () => {
+    console.log("addingNoteState funtion called");
+    this.setState({ title: null, addingNote: !this.state.addingNote });
+  };
+
   //Delete Note
   const deleteNote = async (id) => {
     try {
@@ -88,7 +97,25 @@ const NotesState = (props) => {
         payload: err.response.msg,
       });
     }
+    dispatch({ type: UPDATE_NOTE, payload: note });
+  };
 
+  const updateNoteTitle = async (note) => {
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+
+    try {
+      const res = await axios.put(`/api/notes/${note._id}`, note, config);
+      dispatch({ type: UPDATE_NOTE_TITLE, payload: res.data });
+    } catch (err) {
+      dispatch({
+        type: NOTE_ERROR,
+        payload: err.response.msg,
+      });
+    }
     dispatch({ type: UPDATE_NOTE, payload: note });
   };
 
@@ -121,7 +148,7 @@ const NotesState = (props) => {
     <NotesContext.Provider
       value={{
         notes: state.notes,
-        currentNote: state.current,
+        currentNote: state.currentNote,
         filteredNote: state.filtered,
         error: state.error,
         getNotes,
@@ -133,6 +160,7 @@ const NotesState = (props) => {
         updateNote,
         filterNotes,
         clearNotesFilter,
+        updateNoteTitle,
       }}
     >
       {props.children}

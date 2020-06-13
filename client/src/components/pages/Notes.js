@@ -1,14 +1,23 @@
 import React, { useState, useContext, useEffect } from "react";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
-import SidebarComponent from "../notes/sidebar";
-import EditorComponent from "../notes/editor";
-import NotesContext from "../../contexts/notes/notesContext";
 import Spinner from "../../components/layout/Spinner";
+
+import NotesEditor from "../notes/NotesEditor";
+import NotesContext from "../../contexts/notes/notesContext";
+import NotesSection from "../notes/NotesSection";
+import NotesForm from "../notes/NotesForm";
 
 const Notes = () => {
   const notesContext = useContext(NotesContext);
 
-  const { notes, currentNote, filteredNote, getNotes, loading } = notesContext;
+  const {
+    notes,
+    currentNote,
+    filteredNote,
+    getNotes,
+    loading,
+    addingNote,
+  } = notesContext;
 
   useEffect(() => {
     getNotes();
@@ -20,22 +29,13 @@ const Notes = () => {
   }
   return (
     <div className="notes-container">
-      <SidebarComponent />
-      {/* <EditorComponent /> */}
+      <div>{/* <NewNoteForm /> */}</div>
+      {/* <NotesFilter /> */}
+      <NotesForm />
+      <NotesSection />
+      {/* <NotesEditor /> */}
     </div>
   );
 };
 
 export default Notes;
-
-{
-  /* <h1>Keep your notes organized</h1>
-      <h2>Notes List functionality coming soon.....</h2>
-      <ul>
-        <li>Note </li>
-        <li>Note </li>
-        <li>Note </li>
-        <li>Note </li>
-        <li>Note </li>
-      </ul> */
-}

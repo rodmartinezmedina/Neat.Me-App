@@ -4,36 +4,39 @@ import { Divider, Button } from "@material-ui/core";
 import sidebarStyles from "./styles/sidebar-styles";
 import List from "@material-ui/core/List";
 
-import SidebarItemComponent from "./sidebarItem";
+import NotesItem from "./NotesItem";
 import NotesContext from "../../contexts/notes/notesContext";
 
-const SidebarComponent = (props) => {
+const NotesSection = (props) => {
+  //VARIABLES
   const notesContext = useContext(NotesContext);
 
-  const { notes, filteredNote, currentNote, getNotes, loading } = notesContext;
+  const {
+    notes,
+    filteredNote,
+    currentNote,
+    getNotes,
+    addingNote,
+    loading,
+  } = notesContext;
 
+  // const { classes } = this.props;
+
+  //USEEFFECTS
   useEffect(() => {
     getNotes();
     // eslint-disable-next-line
   }, []);
 
+  //RENDER/RETURN
   if (notes !== null && notes.length === 0 && !loading) {
     return <h4>Please write a note</h4>;
   }
-  // constructor() {
-  //   super();
-  //   this.state = {
-  //     addingNote: false,
-  //     title: null,
-  //   };
-  // }
-
-  const { classes } = this.props;
 
   if (notes !== null) {
     return (
-      <div className={classes.sidebarContainer}>
-        <Button onClick={this.newNoteBtnClick} className={classes.newNoteBtn}>
+      <div>
+        <Button onClick={this.newNoteBtnClick}>
           {" "}
           {this.state.addingNote ? "Cancel" : "New Note"}
         </Button>
@@ -41,26 +44,23 @@ const SidebarComponent = (props) => {
           <div>
             <input
               type="text"
-              className={classes.newNoteInput}
               placeholder="Enter note title"
               onKeyUp={(e) => this.updateTitle(e.target.value)}
             ></input>
-            <Button className={classes.newNoteSubmitBtn} onClick={this.newNote}>
-              Submit Note
-            </Button>
+            <Button onClick={this.newNote}>Submit Note</Button>
           </div>
         ) : null}
         <List>
           {notes.map((_note, _index) => {
             return (
               <div key={_index}>
-                <SidebarItemComponent
+                <NotesItem
                   _note={_note}
                   _index={_index}
-                  selectedNoteIndex={selectedNoteIndex}
+                  // selectedNoteIndex={selectedNoteIndex}
                   selectNote={this.selectNote}
                   deleteNote={this.deleteNote}
-                ></SidebarItemComponent>
+                ></NotesItem>
                 <Divider></Divider>
               </div>
             );
@@ -92,4 +92,4 @@ const SidebarComponent = (props) => {
   // deleteNote = (note) => this.props.deleteNote(note);
 };
 
-export default withStyles(sidebarStyles)(SidebarComponent);
+export default withStyles(sidebarStyles)(NotesSection);

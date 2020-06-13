@@ -6,7 +6,7 @@ import { withStyles } from "@material-ui/core/styles";
 import editorStyles from "./styles/editorStyles";
 import { Input } from "@material-ui/core";
 
-class EditorComponent extends React.Component {
+class NotesEditor extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -74,7 +74,7 @@ class EditorComponent extends React.Component {
   }, 1500);
 }
 
-export default withStyles(editorStyles)(EditorComponent);
+export default withStyles(editorStyles)(NotesEditor);
 
 // class EditorComponent extends React.Component {
 //   constructor() {

@@ -9,6 +9,8 @@ import {
   CLEAR_NOTES_FILTER,
   NOTE_ERROR,
   CLEAR_NOTES,
+  UPDATE_NOTE_TITLE,
+  ADDING_NOTE_STATE,
 } from "../types";
 
 export default (state, action) => {
@@ -24,6 +26,14 @@ export default (state, action) => {
         ...state,
         notes: [action.payload, ...state.notes],
         loading: false,
+        addingNote: false,
+      };
+    case ADDING_NOTE_STATE:
+      return {
+        ...state,
+        notes: [action.payload, ...state.notes],
+        loading: false,
+        addingNote: !state.addingNote,
       };
     case UPDATE_NOTE:
       return {
@@ -33,7 +43,19 @@ export default (state, action) => {
         ),
         loading: false,
       };
-
+    case UPDATE_NOTE_TITLE:
+      return {
+        ...state,
+        notes: state.notes.map((note) =>
+          note._id === action.payload._id ? action.payload : note
+        ),
+        loading: false,
+      };
+    // (txt) => {
+    //   console.log("updateNoteTitle Function: ", txt);
+    //   this.setState({ title: txt });
+    //   // };
+    // };
     case DELETE_NOTE:
       return {
         ...state,
