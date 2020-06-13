@@ -6,7 +6,7 @@ const Footer = ({ iconGithub, iconLinkedin, iconWebsite }) => {
   return (
     <div>
       <nav className="footer bg-secondary">
-        <ul className>
+        <ul>
           <li id="footer-li">
             <a
               id="footer-text"

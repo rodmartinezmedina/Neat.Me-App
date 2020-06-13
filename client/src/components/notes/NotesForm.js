@@ -20,7 +20,7 @@ const NotesForm = (props) => {
     error,
     addNote,
     updateNote,
-    updateNoteTitle,
+    // updateNoteTitle,
     clearCurrentNote,
     currentNote,
     notes,
@@ -65,38 +65,39 @@ const NotesForm = (props) => {
   const clearAll = () => {
     clearCurrentNote();
   };
-  //RENDER/RETURN
-  if (notes !== null && notes.length === 0) {
-    return <h4>Please write a note</h4>;
-  }
+  // //RENDER/RETURN
+  // if (notes !== null && notes.length === 0) {
+  //   return <h4>Please write a note</h4>;
+  // }
 
-  if (notes !== null) {
-    return (
-      <div>
-        <form onSubmit={onsubmit}>
-          <input
-            type="text"
-            placeholder="Enter note title"
-            name="title"
-            value={title}
-            onKeyUp={(e) => updateNoteTitle(e.target.value)}
-          />
-          <input
-            type="submit"
-            value="Submit Note"
-            className="btn btn-primary btn-block"
-          />
-        </form>
-        <Button onClick={this.addingNoteState}>
-          {" "}
-          {this.state.addingNote ? "Cancel" : "New Note"}
-        </Button>
-        {this.state.addingNote ? <div></div> : null}
-      </div>
-    );
-  } else {
-    return <div>Add a note!</div>;
-  }
+  return (
+    <div>
+      <form onubmit={onSubmit}>
+        <h3> {currentNote ? "Edit Note" : "Add Note"}</h3>
+        <h4>Please write a note</h4>
+        <input
+          type="text"
+          placeholder="Enter note title"
+          name="title"
+          value={title}
+          // onKeyUp={(e) => updateNoteTitle(e.target.value)}
+          onchange={onChange}
+        />
+        <input
+          type="text"
+          placeholder="Note Content"
+          name="notecontent"
+          value={notecontent}
+          onChange={onChange}
+        />
+        <input
+          type="submit"
+          value="Submit Note"
+          className="btn btn-primary btn-block"
+        />
+      </form>
+    </div>
+  );
 
   // newNoteBtnClick = () => {
   //   // console.log('new btn clicked');

@@ -7,7 +7,7 @@ import List from "@material-ui/core/List";
 import NotesItem from "./NotesItem";
 import NotesContext from "../../contexts/notes/notesContext";
 
-const NotesSection = (props) => {
+const NoteList = (props) => {
   //VARIABLES
   const notesContext = useContext(NotesContext);
 
@@ -29,27 +29,10 @@ const NotesSection = (props) => {
   }, []);
 
   //RENDER/RETURN
-  if (notes !== null && notes.length === 0 && !loading) {
-    return <h4>Please write a note</h4>;
-  }
 
   if (notes !== null) {
     return (
       <div>
-        <Button onClick={this.newNoteBtnClick}>
-          {" "}
-          {this.state.addingNote ? "Cancel" : "New Note"}
-        </Button>
-        {this.state.addingNote ? (
-          <div>
-            <input
-              type="text"
-              placeholder="Enter note title"
-              onKeyUp={(e) => this.updateTitle(e.target.value)}
-            ></input>
-            <Button onClick={this.newNote}>Submit Note</Button>
-          </div>
-        ) : null}
         <List>
           {notes.map((_note, _index) => {
             return (
@@ -69,7 +52,7 @@ const NotesSection = (props) => {
       </div>
     );
   } else {
-    return <div>Add a note!</div>;
+    return <div>There are no notes to display</div>;
   }
 
   // newNoteBtnClick = () => {
@@ -92,4 +75,4 @@ const NotesSection = (props) => {
   // deleteNote = (note) => this.props.deleteNote(note);
 };
 
-export default withStyles(sidebarStyles)(NotesSection);
+export default withStyles(sidebarStyles)(NoteList);

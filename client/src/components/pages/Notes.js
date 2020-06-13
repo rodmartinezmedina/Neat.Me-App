@@ -4,7 +4,7 @@ import Spinner from "../../components/layout/Spinner";
 
 import NotesEditor from "../notes/NotesEditor";
 import NotesContext from "../../contexts/notes/notesContext";
-import NotesSection from "../notes/NotesSection";
+import NotesList from "../notes/NotesList";
 import NotesForm from "../notes/NotesForm";
 
 const Notes = () => {
@@ -24,15 +24,11 @@ const Notes = () => {
     // eslint-disable-next-line
   }, []);
 
-  if (notes !== null && notes.length === 0 && !loading) {
-    return <h4>Please write a note</h4>;
-  }
   return (
-    <div className="notes-container">
-      <div>{/* <NewNoteForm /> */}</div>
+    <div>
       {/* <NotesFilter /> */}
       <NotesForm />
-      <NotesSection />
+      <NotesList />
       {/* <NotesEditor /> */}
     </div>
   );
