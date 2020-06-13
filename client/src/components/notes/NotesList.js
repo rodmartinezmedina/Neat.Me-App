@@ -1,6 +1,6 @@
 import React, { Fragment, useContext, useEffect } from "react";
 import { withStyles } from "@material-ui/core/styles";
-import { Divider, Button } from "@material-ui/core";
+import { Divider } from "@material-ui/core";
 import sidebarStyles from "./styles/sidebar-styles";
 import List from "@material-ui/core/List";
 
