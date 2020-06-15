@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import ReactQuill from "react-quill"; // ES6
 import "react-quill/dist/quill.snow.css"; // ES6
+import debounce from "../notes/helpers";
 import NotesContext from "../../contexts/notes/notesContext";
 import AlertContext from "../../contexts/alert/alertContext";
 import AuthContext from "../../contexts/auth/authContext";
@@ -23,7 +24,7 @@ const NotesEditor = () => {
 
   const [note, setNote] = useState({
     title: "",
-    notecontent: "",
+    // notecontent: "",
   });
 
   const { title, notecontent } = note;
@@ -40,12 +41,6 @@ const NotesEditor = () => {
   }, [error, authContext, notesContext, clearErrors, currentNote]);
 
   const onChange = (e) => setNote({ ...note, [e.target.name]: e.target.value });
-
-  // const onTitleChange = (e) =>
-  //   setNote({ ...note, [e.target.name]: e.target.value });
-  // const onNoteContentChange = (e) =>
-  //   setNoteContent({ ...note, [e.notecontent.name]: e.notecontent.value });
-  // // const onNoteContentChange = (value) { this.setState({ text: value });
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -76,20 +71,20 @@ const NotesEditor = () => {
           value={title}
           onChange={onChange}
         />
-        {/* <ReactQuill
+        <ReactQuill
           theme="snow"
           name="notecontent"
           value={notecontent}
           onChange={onChange}
-        /> */}
+        />
 
-        <input
+        {/* <input
           type="text"
           placeholder="Please write a note here"
           name="notecontent"
           value={notecontent}
           onChange={onChange}
-        />
+        /> */}
 
         <input
           type="submit"
