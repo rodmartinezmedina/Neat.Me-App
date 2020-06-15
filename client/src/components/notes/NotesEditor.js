@@ -76,20 +76,20 @@ const NotesEditor = () => {
           value={title}
           onChange={onChange}
         />
-        <ReactQuill
+        {/* <ReactQuill
           theme="snow"
           name="notecontent"
           value={notecontent}
           onChange={onChange}
-        />
-        {/* 
+        /> */}
+
         <input
           type="text"
           placeholder="Please write a note here"
           name="notecontent"
           value={notecontent}
           onChange={onChange}
-        /> */}
+        />
 
         <input
           type="submit"
