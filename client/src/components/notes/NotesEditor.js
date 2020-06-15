@@ -24,10 +24,10 @@ const NotesEditor = () => {
 
   const [note, setNote] = useState({
     title: "",
-    text: "",
+    notecontent: "",
   });
 
-  const { title, text } = note;
+  const { title, notecontent } = note;
 
   useEffect(() => {
     if (currentNote !== null) {
@@ -35,7 +35,7 @@ const NotesEditor = () => {
     } else {
       setNote({
         title: "",
-        text: "",
+        notecontent: "",
       });
     }
   }, [error, authContext, notesContext, clearErrors, currentNote]);
@@ -45,7 +45,7 @@ const NotesEditor = () => {
   const onSubmit = (e) => {
     e.preventDefault();
     if (title === "") {
-      setAlert(`Please enter all fields`, "danger");
+      setAlert(`Please enter a title`, "danger");
     } else if (currentNote === null) {
       addNote(note);
     } else {
@@ -58,19 +58,6 @@ const NotesEditor = () => {
     clearCurrentNote();
   };
 
-  // handleTitleChange(value) {
-  //   this.setState({ title: value });
-  // }
-
-  // handleTextChange(value) {
-  //   this.setState({ text: value });
-  // }
-
-  // onSubmit = (e) => {
-  //   e.preventDefault();
-  //   console.log("asdfasdfasfsadfsa");
-  // };
-
   return (
     <div>
       <form onSubmit={onSubmit}>
@@ -80,12 +67,18 @@ const NotesEditor = () => {
         <input
           type="text"
           placeholder="Note's Title"
-          name="Title"
+          name="title"
           value={title}
           onChange={onChange}
         />
 
-        <ReactQuill value={text} onChange={onChange} />
+        <ReactQuill
+          type="text"
+          placeholder="Please write a note here"
+          name="notecontent"
+          value={notecontent}
+          onChange={onChange}
+        />
         <input
           type="submit"
           value={currentNote ? "Update Note" : "Add Note"}
