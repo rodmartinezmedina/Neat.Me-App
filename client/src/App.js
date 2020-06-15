@@ -13,6 +13,7 @@ import Alerts from "./components/layout/Alerts";
 import PrivateRoute from "./components/routing/PrivateRoute";
 import ContactState from "./contexts/contact/ContactState";
 import AuthState from "./contexts/auth/AuthState";
+import NotesState from "./contexts/notes/NotesState";
 import AlertState from "./contexts/alert/AlertState";
 import setAuthToken from "./utils/setAuthToken";
 
@@ -24,25 +25,27 @@ const App = () => {
   return (
     <AuthState>
       <ContactState>
-        <AlertState>
-          <Router>
-            <Fragment>
-              <Navbar />
-              <div className="container">
-                <Alerts />
-                <Switch>
-                  <Route exact path="/welcome" component={Welcome} />
-                  <PrivateRoute exact path="/" component={Home} />
-                  <PrivateRoute exact path="/notes" component={Notes} />
-                  <Route exact path="/about" component={About} />
-                  <Route exact path="/signup" component={Signup} />
-                  <Route exact path="/login" component={Login} />
-                </Switch>
-              </div>
-              <Footer className="footer" />
-            </Fragment>
-          </Router>
-        </AlertState>
+        <NotesState>
+          <AlertState>
+            <Router>
+              <Fragment>
+                <Navbar />
+                <div className="container">
+                  <Alerts />
+                  <Switch>
+                    <Route exact path="/welcome" component={Welcome} />
+                    <PrivateRoute exact path="/" component={Home} />
+                    <PrivateRoute exact path="/notes" component={Notes} />
+                    <Route exact path="/about" component={About} />
+                    <Route exact path="/signup" component={Signup} />
+                    <Route exact path="/login" component={Login} />
+                  </Switch>
+                </div>
+                <Footer className="footer" />
+              </Fragment>
+            </Router>
+          </AlertState>
+        </NotesState>
       </ContactState>
     </AuthState>
   );
