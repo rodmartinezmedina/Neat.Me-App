@@ -2,8 +2,6 @@ import React, { useState, useContext, useEffect } from "react";
 import { withStyles } from "@material-ui/core/styles";
 import { Button } from "@material-ui/core";
 import sidebarStyles from "./styles/sidebar-styles";
-import ReactQuill from "react-quill";
-import NotesEditor from "./NotesEditor";
 
 import NotesContext from "../../contexts/notes/notesContext";
 import AlertContext from "../../contexts/alert/alertContext";
@@ -74,9 +72,7 @@ const NotesForm = (props) => {
 
   return (
     <div>
-      <new NotesEditor />
-
-      {/* <form onubmit={onSubmit}>
+      <form onubmit={onSubmit}>
         <h3> {currentNote ? "Edit Note" : "Add Note"}</h3>
         <h4>Please write a note</h4>
         <input
@@ -99,7 +95,7 @@ const NotesForm = (props) => {
           value="Submit Note"
           className="btn btn-primary btn-block"
         />
-      </form> */}
+      </form>
     </div>
   );
 

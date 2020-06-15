@@ -1,11 +1,12 @@
 import React, { useState, useContext, useEffect } from "react";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import Spinner from "../../components/layout/Spinner";
+import ReactQuill from "react-quill";
 
-import NotesEditor from "../notes/NotesEditor";
 import NotesContext from "../../contexts/notes/notesContext";
-import NotesList from "../notes/NotesList";
 import NotesForm from "../notes/NotesForm";
+import NotesList from "../notes/NotesList";
+import NotesEditor from "../notes/NotesEditor";
 
 const Notes = () => {
   const notesContext = useContext(NotesContext);
@@ -29,7 +30,8 @@ const Notes = () => {
       {/* <NotesFilter /> */}
       <NotesForm />
       <NotesList />
-      {/* <NotesEditor /> */}
+      {/* <ReactQuill /> */}
+      <NotesEditor />
     </div>
   );
 };

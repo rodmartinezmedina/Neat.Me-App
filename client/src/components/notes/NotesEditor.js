@@ -1,145 +1,45 @@
 import React from "react";
-import ReactQuill from "react-quill";
-import debounce from "./helpers";
-import BorderColorIcon from "@material-ui/icons/BorderColor";
-import { withStyles } from "@material-ui/core/styles";
-import editorStyles from "./styles/editorStyles";
-import { Input } from "@material-ui/core";
+import ReactQuill from "react-quill"; // ES6
+import "react-quill/dist/quill.snow.css"; // ES6
 
 class NotesEditor extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      text: "",
-      title: "",
-      id: "",
-    };
+  constructor(props) {
+    super(props);
+    this.state = { text: "", title: "" }; // You can also pass a Quill Delta here
+    this.handleChange = this.handleChange.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
   }
 
-  componentDidMount = () => {
-    this.setState({
-      text: this.props.selectedNote.body,
-      title: this.props.selectedNote.title,
-      id: this.props.selectedNote.id,
-    });
-  };
+  setState;
 
-  componentDidUpdate = () => {
-    if (this.props.selectedNote.id !== this.state.id) {
-      this.setState({
-        text: this.props.selectedNote.body,
-        title: this.props.selectedNote.title,
-        id: this.props.selectedNote.id,
-      });
-    }
+  handleChange(value) {
+    this.setState({ text: value });
+  }
+
+  onSubmit = (e) => {
+    e.preventDefault();
+    console.log("asdfasdfasfsadfsa");
   };
 
   render() {
-    const { classes } = this.props;
-
     return (
-      <div className={classes.editorContainer}>
-        <BorderColorIcon className={classes.editIcon}></BorderColorIcon>
-        <input
-          className={classes.titleInput}
-          placeholder="Notes title..."
-          value={this.state.title ? this.state.title : ""}
-          onChange={(e) => this.updateTitle(e.target.value)}
-        ></input>
-        <ReactQuill
-          value={this.state.text}
-          onChange={this.updateBody}
-        ></ReactQuill>
+      <div>
+        <form onSubmit={this.onSubmit}>
+          <h2>Write a note</h2>
+          {/* <h2>{currentNote ? "Edit Contact" : "Add Contact"}</h2> */}
+          <p>Please write something</p>
+          <input
+            type="text"
+            placeholder="Note's Title"
+            name="Title"
+            value={this.state.title}
+            onChange={this.handleChange}
+          />
+        </form>
+        <ReactQuill value={this.state.text} onChange={this.handleChange} />
       </div>
     );
   }
-
-  updateBody = async (val) => {
-    await this.setState({ text: val });
-    this.update();
-  };
-
-  updateTitle = async (txt) => {
-    await this.setState({ title: txt });
-    this.update();
-  };
-
-  update = debounce(() => {
-    // console.log('updating database');
-
-    this.props.noteUpdate(this.state.id, {
-      title: this.state.title,
-      body: this.state.text,
-    });
-  }, 1500);
 }
 
-export default withStyles(editorStyles)(NotesEditor);
-
-// class EditorComponent extends React.Component {
-//   constructor() {
-//     super();
-//     this.state = {
-//       text: '',
-//       title: '',
-//       id: ''
-//     };
-//   }
-
-//   componentDidMount = () => {
-//     this.setState({
-//       text: this.props.selectedNote.body,
-//       title: this.props.selectedNote.title,
-//       id: this.props.selectedNote.id
-//     });
-//   }
-
-//   componentDidUpdate = () => {
-//     if (this.props.selectedNote.id !== this.state.id) {
-//       this.setState({
-//         text: this.props.selectedNote.body,
-//         title: this.props.selectedNote.title,
-//         id: this.props.selectedNote.id
-//       });
-//     }
-//   }
-
-//   render() {
-//     const { classes } = this.props;
-
-//     return(
-//       <div className={classes.editorContainer}>
-//         <BorderColorIcon className={classes.editIcon}></BorderColorIcon>
-//         <Input
-//           className={classes.titleInput}
-//           placeholder='Note title...'
-//           value={this.state.title ? this.state.title : ''}
-//           onChange{(e) => this.updateTitle(e.target.value)}>
-//         </Input>
-//         <ReactQuill
-//         value={this.state.text}
-//         onChange={this.updateBody}>
-//         </ReactQuill>
-//       </div>
-//     );
-//   }
-
-//   updateBody = async (val) => {
-//     await this.setState({ text: val });
-//     this.update();
-//   }
-
-//   updateTitle = async (txt) => {
-//     await this.setState({ title: txt});
-//     this.update();
-//   }
-
-//   update = debounce(() => {
-//     this.props.noteUpdate(this.state.id, {
-//       title: this.state.title,
-//       body: this.state.text
-//     })
-//   }, 1500);
-// }
-
-// export default withStyles(styles)(EditorComponent);
+export default NotesEditor;
