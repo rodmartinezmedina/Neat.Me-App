@@ -28,11 +28,9 @@ const Notes = () => {
   return (
     <div>
       {/* <NotesFilter /> */}
-      {/* <NotesForm /> */}
-      {/* <ReactQuill /> */}
-      <NotesList />
 
       <NotesEditor />
+      <NotesList />
     </div>
   );
 };

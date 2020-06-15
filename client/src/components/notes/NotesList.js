@@ -1,11 +1,13 @@
 import React, { Fragment, useContext, useEffect } from "react";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
+
 import { withStyles } from "@material-ui/core/styles";
 import { Divider } from "@material-ui/core";
 import sidebarStyles from "./styles/sidebar-styles";
-import List from "@material-ui/core/List";
 
 import NotesItem from "./NotesItem";
 import NotesContext from "../../contexts/notes/notesContext";
+import Spinner from "../layout/Spinner";
 
 const NoteList = (props) => {
   //VARIABLES
@@ -29,50 +31,44 @@ const NoteList = (props) => {
   }, []);
 
   //RENDER/RETURN
-
-  if (notes !== null) {
-    return (
-      <div>
-        <List>
-          {notes.map((_note, _index) => {
-            return (
-              <div key={_index}>
-                <NotesItem
-                  _note={_note}
-                  _index={_index}
-                  // selectedNoteIndex={selectedNoteIndex}
-                  selectNote={this.selectNote}
-                  deleteNote={this.deleteNote}
-                ></NotesItem>
-                <Divider></Divider>
-              </div>
-            );
-          })}
-        </List>
-      </div>
-    );
-  } else {
-    return <div>There are no notes to display</div>;
-  }
-
-  // newNoteBtnClick = () => {
-  //   // console.log('new btn clicked');
-  //   this.setState({ title: null, addingNote: !this.state.addingNote });
-  // };
-
-  // updateTitle = (txt) => {
-  //   // console.log('HERE IT IS: ', txt);
-  //   this.setState({ title: txt });
-  // };
-
-  // newNote = () => {
-  //   // console.log(this.state)
-  //   this.props.newNote(this.state.title);
-  //   this.setState({ title: null, addingNote: false });
-  // };
-
-  // selectNote = (n, i) => this.props.selectNote(n, i);
-  // deleteNote = (note) => this.props.deleteNote(note);
+  // if (notes !== null && notes.length === 0 && !loading) {
+  //   return <h4>Please add note</h4>;
+  // }
+  // if (notes !== null) {
+  return (
+    <div>
+      <Fragment>
+        {notes !== null && !loading ? (
+          <TransitionGroup>
+            {notes.map((note) => (
+              <CSSTransition key={note._id} timeout={300} classNames="item">
+                <NotesItem note={note} />
+              </CSSTransition>
+            ))}
+          </TransitionGroup>
+        ) : (
+          <Spinner />
+        )}
+      </Fragment>
+    </div>
+  );
 };
 
 export default withStyles(sidebarStyles)(NoteList);
+
+{
+  /* <TransitionGroup>
+{filteredNote !== null
+  ? filteredNote.map((note) => (
+      <CSSTransition key={note._id} timeout={300} classNames="item">
+        <NotesItem note={note} />
+      </CSSTransition>
+    ))
+  : 
+  notes.map((note) => (
+      <CSSTransition key={note._id} timeout={300} classNames="item">
+        <NotesItem note={note} />
+      </CSSTransition>
+    ))}
+</TransitionGroup> */
+}
