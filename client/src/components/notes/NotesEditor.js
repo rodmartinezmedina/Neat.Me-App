@@ -18,7 +18,6 @@ const NotesEditor = () => {
     addNote,
     updateNote,
     clearCurrentNote,
-    setCurrentNote,
     currentNote,
   } = notesContext;
 
@@ -41,6 +40,12 @@ const NotesEditor = () => {
   }, [error, authContext, notesContext, clearErrors, currentNote]);
 
   const onChange = (e) => setNote({ ...note, [e.target.name]: e.target.value });
+
+  // const onTitleChange = (e) =>
+  //   setNote({ ...note, [e.target.name]: e.target.value });
+  // const onNoteContentChange = (e) =>
+  //   setNoteContent({ ...note, [e.notecontent.name]: e.notecontent.value });
+  // // const onNoteContentChange = (value) { this.setState({ text: value });
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -71,14 +76,21 @@ const NotesEditor = () => {
           value={title}
           onChange={onChange}
         />
-
         <ReactQuill
+          theme="snow"
+          name="notecontent"
+          value={notecontent}
+          onChange={onChange}
+        />
+        {/* 
+        <input
           type="text"
           placeholder="Please write a note here"
           name="notecontent"
           value={notecontent}
           onChange={onChange}
-        />
+        /> */}
+
         <input
           type="submit"
           value={currentNote ? "Update Note" : "Add Note"}
@@ -124,7 +136,8 @@ export default NotesEditor;
 //       <div>
 //         <form onSubmit={this.onSubmit}>
 //           <h2>Write a note</h2>
-//           {/* <h2>{currentNote ? "Edit Contact" : "Add Contact"}</h2> */}
+//           {/* <h2>{currentNote ? "Edit Contact" : "Add Contact"}</h2> */
+
 //           <p>Please write something</p>
 //           <input
 //             type="text"

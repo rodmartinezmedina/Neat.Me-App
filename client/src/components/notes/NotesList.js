@@ -38,6 +38,7 @@ const NoteList = (props) => {
   return (
     <div>
       <Fragment>
+        <h2>Notes Collection</h2>
         {notes !== null && !loading ? (
           <TransitionGroup>
             {notes.map((note) => (
@@ -54,7 +55,7 @@ const NoteList = (props) => {
   );
 };
 
-export default withStyles(sidebarStyles)(NoteList);
+export default NoteList;
 
 {
   /* <TransitionGroup>

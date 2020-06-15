@@ -41,39 +41,6 @@ const NotesItem = ({ note }) => {
       </p>
     </div>
   );
-
-  // return (
-  //   <div key={_id}>
-  //     <ListItem
-  //       className={classes.listItem}
-  //       //selected is a property of the ListItem Component. if selected it will be highlighted
-  //       // if selectedNoteIndex === _index then we consider the element as selected
-  //       selected={selectedNoteIndex === _id}
-  //       alignItems="flex-start"
-  //     >
-  //       <div
-  //         className={classes.textSection}
-  //         onClick={() => setCurrentNote(note)}
-  //       >
-  //         <ListItemText
-  //           primary={note.title}
-  //           secondary={removeHTMLTags(note.notecontent.substring(0, 30))}
-  //         ></ListItemText>
-  //       </div>
-  //       <DeleteIcon onClick={() => onDelete()}></DeleteIcon>
-  //     </ListItem>
-  //   </div>
-  // );
-
-  //////////////////////////////
-
-  // selectNote = (n, i) => this.props.selectNote(n, i);
-  // deleteNote = (note) => {
-  //   if (
-  //     window.confirm(`Are you sure you want to delete the note ${note.title}`)
-  //   )
-  //     this.props.deleteNote(note);
-  // };
 };
 
 NotesItem.propTypes = {
