@@ -8,3 +8,52 @@
   color: #333;
   border-radius: 5px;
 }
+
+.badge-primary {
+  background: $primary-color;
+  color: white;
+}
+
+.badge-secondary {
+  background: $secondary-color;
+  color: $dark-color;
+}
+
+.badge-third {
+  background: $third-color;
+  color: $primary-color;
+}
+
+.badge-light {
+  background: $light-color;
+  color: $dark-color;
+}
+
+.badge-light-2 {
+  color: $primary-color;
+}
+
+.badge-dark {
+  background: $dark-color;
+  color: $secondary-color;
+}
+
+.badge-danger {
+  background: $danger-color;
+  color: #fff;
+}
+
+.badge-success {
+  background: $success-color;
+  color: #fff;
+}
+
+.badge-white {
+  background: #fff;
+  color: #333;
+  border: #ccc solid 1px;
+}
+
+.badge-light {
+  border: #ccc solid 1px;
+}

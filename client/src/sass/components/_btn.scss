@@ -34,3 +34,74 @@
   background-color: $third-color;
   box-shadow: -3px 3px 4px rgb(141, 141, 141);
 }
+
+.button {
+  border-radius: 5px;
+  text-decoration: none;
+  display: inline-block;
+  padding: 0.4rem 1.3rem;
+  font-size: 1.2rem;
+  border: none;
+  cursor: pointer;
+  margin-right: 0.5rem;
+  transition: opacity 0.2s ease-in;
+  outline: none;
+}
+
+.with-borders-button:hover {
+  color: $dark-color;
+  /* border-color: $primary-color; */
+  background-color: $secondary-color;
+}
+
+.with-borders-button {
+  color: $light-color;
+  border-style: solid;
+  border-radius: 5px;
+  border-color: $primary-color;
+  font-size: 1.2rem;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+}
+
+.btn-primary {
+  background: $primary-color;
+  color: white;
+}
+
+.btn-secondary {
+  background: $secondary-color;
+  color: $dark-color;
+}
+
+.btn-third {
+  background: $third-color;
+  color: $primary-color;
+}
+
+.btn-light {
+  background: $light-color;
+  color: $dark-color;
+}
+
+.btn-dark {
+  background: $dark-color;
+  color: $secondary-color;
+}
+
+.btn-danger {
+  background: $danger-color;
+  color: #fff;
+}
+
+.btn-success,
+s {
+  background: $success-color;
+  color: #fff;
+}
+
+.btn-white {
+  background: #fff;
+  color: #333;
+  border: #ccc solid 1px;
+}

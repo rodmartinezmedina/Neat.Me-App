@@ -1,5 +1,9 @@
 /* Utilities */
 
+.round-img {
+  border-radius: 50%;
+}
+
 /* List */
 .list {
   margin: 0.5rem 0;
@@ -18,4 +22,59 @@
   justify-content: center;
   align-items: center;
   text-align: center;
+}
+
+.bg-primary {
+  background: $primary-color;
+  color: white;
+}
+
+.bg-secondary {
+  background: $secondary-color;
+  color: $dark-color;
+}
+
+.bg-third {
+  background: $third-color;
+  color: $primary-color;
+}
+
+.bg-light {
+  background: $light-color;
+  color: $dark-color;
+}
+
+.bg-dark {
+  background: $dark-color;
+  color: $secondary-color;
+}
+
+.bg-danger {
+  background: $danger-color;
+  color: #fff;
+}
+
+.bg-success {
+  background: $success-color;
+  color: #fff;
+}
+
+.bg-white {
+  background: #fff;
+  color: #333;
+  border: #ccc solid 1px;
+}
+
+.bg-light {
+  border: #ccc solid 1px;
+}
+
+/* table th,
+table td {
+  padding: 1rem;
+  text-align: left;
+} */
+
+table th {
+  background: $light-color;
 }

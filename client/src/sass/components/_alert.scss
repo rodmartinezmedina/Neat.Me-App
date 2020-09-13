@@ -5,3 +5,44 @@
   background: $light-color;
   color: #333;
 }
+
+.alert-primary {
+  background: $primary-color;
+  color: white;
+}
+
+.alert-secondary {
+  background: $secondary-color;
+  color: $dark-color;
+}
+
+.alert-third {
+  background: $third-color;
+  color: $primary-color;
+}
+
+.alert-light {
+  background: $light-color;
+  color: $dark-color;
+}
+
+.alert-dark {
+  background: $dark-color;
+  color: $secondary-color;
+}
+
+.alert-danger {
+  background: $danger-color;
+  color: #fff;
+}
+
+.alert-success {
+  background: $success-color;
+  color: #fff;
+}
+
+.alert-white {
+  background: #fff;
+  color: #333;
+  border: #ccc solid 1px;
+}
