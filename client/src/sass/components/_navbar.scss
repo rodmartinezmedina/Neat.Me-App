@@ -1,0 +1,48 @@
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.7rem 2rem;
+  position: fixed;
+  top: 0;
+  z-index: 1;
+  width: 100%;
+  opacity: 1;
+  margin-bottom: 1rem;
+}
+
+.app-logo {
+  height: 70px;
+  align-items: center;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  margin-top: 0px;
+  margin-bottom: -13px;
+}
+.navbar ul {
+  display: flex;
+}
+
+.navbar a {
+  color: $secondary-color;
+  padding: 0.45rem;
+  margin: 0 0.25rem;
+}
+
+.navbar a:hover {
+  color: $light-color;
+}
+
+.navbar h1 {
+  /* color: $third-color; */
+  align-items: center;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  justify-content: center;
+}
+.navbar .welcome span {
+  margin-right: 0.6rem;
+}

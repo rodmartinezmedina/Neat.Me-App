@@ -1,0 +1,21 @@
+/* Utilities */
+
+/* List */
+.list {
+  margin: 0.5rem 0;
+}
+
+.list li {
+  padding-bottom: 0.3rem;
+}
+
+/* Center All */
+.all-center {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}

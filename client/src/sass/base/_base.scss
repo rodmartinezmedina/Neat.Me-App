@@ -1,0 +1,30 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Noto Sans", sans-serif;
+  font-size: 1rem;
+  line-height: 1.7;
+  background-color: white;
+  color: #333;
+}
+
+a {
+  color: $primary-color;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #666;
+}
+
+ul {
+  list-style: none;
+}
+
+i {
+  margin-right: 10px;
+}
