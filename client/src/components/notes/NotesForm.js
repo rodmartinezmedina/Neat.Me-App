@@ -43,7 +43,7 @@ const NotesForm = (props) => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    if (title === "") {
+    if (title === "" || notecontent === "") {
       setAlert(`Please enter all fields`, "danger");
     } else if (currentNote === null) {
       addNote(note);

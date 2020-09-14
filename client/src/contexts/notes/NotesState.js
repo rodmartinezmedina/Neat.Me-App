@@ -94,25 +94,6 @@ const NotesState = (props) => {
     dispatch({ type: UPDATE_NOTE, payload: note });
   };
 
-  // const updateNoteTitle = async (note) => {
-  //   const config = {
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //   };
-
-  //   try {
-  //     const res = await axios.put(`/api/notes/${note._id}`, note, config);
-  //     dispatch({ type: UPDATE_NOTE_TITLE, payload: res.data });
-  //   } catch (err) {
-  //     dispatch({
-  //       type: NOTE_ERROR,
-  //       payload: err.response.msg,
-  //     });
-  //   }
-  //   dispatch({ type: UPDATE_NOTE, payload: note });
-  // };
-
   //Clear Notes
   const clearNotes = () => {
     dispatch({ type: CLEAR_NOTES });

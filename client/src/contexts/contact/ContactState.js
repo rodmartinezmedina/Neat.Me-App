@@ -92,12 +92,8 @@ const ContactState = (props) => {
         payload: err.response.msg,
       });
     }
-
     dispatch({ type: UPDATE_CONTACT, payload: contact });
   };
-
-  /////////////////////////
-  ///////////////
 
   //Clear Contacts
   const clearContacts = () => {
