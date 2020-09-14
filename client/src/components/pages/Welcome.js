@@ -14,7 +14,7 @@ const Home = () => {
     <>
       <section className="hero welcome-hero">
         <div className="high-hero">
-          <h1 class="animated-text-enter"> Neat.Me</h1>
+          <h1 className="animated-text-enter"> Neat.Me</h1>
           <h3>Keep your contacts and notes in one place</h3>
           {/* <img
           className="hero-welcome-img"

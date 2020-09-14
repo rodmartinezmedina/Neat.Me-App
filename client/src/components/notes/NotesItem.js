@@ -1,21 +1,13 @@
 import React, { useContext } from "react";
 import PropTypes from "prop-types";
-import { withStyles } from "@material-ui/core/styles";
-import sbItemStyles from "./styles/sbItemStyles";
-import ListItem from "@material-ui/core/ListItem";
-import ListItemText from "@material-ui/core/ListItemText";
-import DeleteIcon from "@material-ui/icons/Delete";
-
-import { removeHTMLTags } from "./helpers";
 import NotesContext from "../../contexts/notes/notesContext";
 
 const NotesItem = ({ note }) => {
   const notesContext = useContext(NotesContext);
+
   const { deleteNote, setCurrentNote, clearCurrentNote } = notesContext;
 
   const { _id, title, notecontent } = note;
-
-  // const { classes, selectedNoteIndex } = this.props;
 
   const onDelete = () => {
     deleteNote(_id);
@@ -48,4 +40,4 @@ NotesItem.propTypes = {
 };
 
 // export default NotesItem;
-export default withStyles(sbItemStyles)(NotesItem);
+export default NotesItem;

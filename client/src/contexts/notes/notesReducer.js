@@ -68,17 +68,17 @@ export default (state, action) => {
         notes: null,
         filtered: null,
         error: null,
-        current: null,
+        currentNote: null,
       };
     case SET_CURRENT_NOTE:
       return {
         ...state,
-        current: action.payload,
+        currentNote: action.payload,
       };
     case CLEAR_CURRENT_NOTE:
       return {
         ...state,
-        current: null,
+        currentNote: null,
       };
     case FILTER_NOTES:
       return {

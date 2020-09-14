@@ -4,9 +4,9 @@ import AlertContext from "../../contexts/alert/alertContext";
 import AuthContext from "../../contexts/auth/authContext";
 
 function ContactForm() {
+  const authContext = useContext(AuthContext);
   const alertContext = useContext(AlertContext);
   const contactContext = useContext(ContactContext);
-  const authContext = useContext(AuthContext);
 
   const { clearErrors } = authContext;
   const { setAlert } = alertContext;
@@ -104,13 +104,11 @@ function ContactForm() {
           onChange={onChange}
         />
         Professional
-        <div>
-          <input
-            type="submit"
-            value={current ? "Update Contact" : "Add Contact"}
-            className="btn btn-primary btn-block"
-          />
-        </div>
+        <input
+          type="submit"
+          value={current ? "Update Contact" : "Add Contact"}
+          className="btn btn-primary btn-block"
+        />
         {current && (
           <div>
             <button className="btn btn-light btn-block" onClick={clearAll}>

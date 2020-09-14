@@ -96,6 +96,9 @@ const ContactState = (props) => {
     dispatch({ type: UPDATE_CONTACT, payload: contact });
   };
 
+  /////////////////////////
+  ///////////////
+
   //Clear Contacts
   const clearContacts = () => {
     dispatch({ type: CLEAR_CONTACTS });

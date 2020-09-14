@@ -1,9 +1,9 @@
 import React, { Fragment, useContext, useEffect } from "react";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 
-import { withStyles } from "@material-ui/core/styles";
-import { Divider } from "@material-ui/core";
-import sidebarStyles from "./styles/sidebar-styles";
+// import { withStyles } from "@material-ui/core/styles";
+// import { Divider } from "@material-ui/core";
+// import sidebarStyles from "./styles/sidebar-styles";
 
 import NotesItem from "./NotesItem";
 import NotesContext from "../../contexts/notes/notesContext";
@@ -16,10 +16,10 @@ const NoteList = (props) => {
   const {
     notes,
     filteredNote,
-    currentNote,
     getNotes,
-    addingNote,
     loading,
+    currentNote,
+    // addingNote,
   } = notesContext;
 
   // const { classes } = this.props;
@@ -30,11 +30,11 @@ const NoteList = (props) => {
     // eslint-disable-next-line
   }, []);
 
-  //RENDER/RETURN
-  // if (notes !== null && notes.length === 0 && !loading) {
-  //   return <h4>Please add note</h4>;
-  // }
-  // if (notes !== null) {
+  // RENDER / RETURN;
+  if (notes !== null && notes.length === 0 && !loading) {
+    return <h4>Please add note</h4>;
+  }
+
   return (
     <div>
       <Fragment>

@@ -1,19 +1,12 @@
 import React, { useState, useContext, useEffect } from "react";
-import { withStyles } from "@material-ui/core/styles";
-import { Button } from "@material-ui/core";
-import sidebarStyles from "./styles/sidebar-styles";
-import ReactQuill from "react-quill";
-import NotesEditor from "./NotesEditor";
-
 import NotesContext from "../../contexts/notes/notesContext";
 import AlertContext from "../../contexts/alert/alertContext";
 import AuthContext from "../../contexts/auth/authContext";
 
 const NotesForm = (props) => {
-  //VARIABLES
-  const notesContext = useContext(NotesContext);
-  const alertContext = useContext(AlertContext);
   const authContext = useContext(AuthContext);
+  const alertContext = useContext(AlertContext);
+  const notesContext = useContext(NotesContext);
 
   const { clearErrors } = authContext;
   const { setAlert } = alertContext;
@@ -22,12 +15,8 @@ const NotesForm = (props) => {
     error,
     addNote,
     updateNote,
-    // updateNoteTitle,
     clearCurrentNote,
     currentNote,
-    notes,
-    // addingNote,
-    // addingNoteState,
   } = notesContext;
 
   const [note, setNote] = useState({
@@ -38,6 +27,7 @@ const NotesForm = (props) => {
   const { title, notecontent } = note;
 
   //USEEFFECTS
+
   useEffect(() => {
     if (currentNote !== null) {
       setNote(currentNote);
@@ -49,13 +39,12 @@ const NotesForm = (props) => {
     }
   }, [error, authContext, notesContext, clearErrors, currentNote]);
 
-  const onChange = (e) =>
-    setNote({ ...note, [e.target.title]: e.target.value });
+  const onChange = (e) => setNote({ ...note, [e.target.name]: e.target.value });
 
   const onSubmit = (e) => {
     e.preventDefault();
     if (title === "") {
-      setAlert(`Please enter a note title`, "danger");
+      setAlert(`Please enter all fields`, "danger");
     } else if (currentNote === null) {
       addNote(note);
     } else {
@@ -67,16 +56,10 @@ const NotesForm = (props) => {
   const clearAll = () => {
     clearCurrentNote();
   };
-  // //RENDER/RETURN
-  // if (notes !== null && notes.length === 0) {
-  //   return <h4>Please write a note</h4>;
-  // }
 
   return (
     <div>
-      <new NotesEditor />
-
-      {/* <form onubmit={onSubmit}>
+      <form onSubmit={onSubmit}>
         <h3> {currentNote ? "Edit Note" : "Add Note"}</h3>
         <h4>Please write a note</h4>
         <input
@@ -85,7 +68,7 @@ const NotesForm = (props) => {
           name="title"
           value={title}
           // onKeyUp={(e) => updateNoteTitle(e.target.value)}
-          onchange={onChange}
+          onChange={onChange}
         />
         <input
           type="text"
@@ -94,33 +77,22 @@ const NotesForm = (props) => {
           value={notecontent}
           onChange={onChange}
         />
+
         <input
           type="submit"
-          value="Submit Note"
+          value={currentNote ? "Update Note" : "Add Note"}
           className="btn btn-primary btn-block"
         />
-      </form> */}
+        {currentNote && (
+          <div>
+            <button className="btn btn-light btn-block" onClick={clearAll}>
+              Clear
+            </button>
+          </div>
+        )}
+      </form>
     </div>
   );
-
-  // newNoteBtnClick = () => {
-  //   // console.log('new btn clicked');
-  //   this.setState({ title: null, addingNote: !this.state.addingNote });
-  // };
-
-  // updateTitle = (txt) => {
-  //   // console.log('HERE IT IS: ', txt);
-  //   this.setState({ title: txt });
-  // };
-
-  // newNote = () => {
-  //   // console.log(this.state)
-  //   this.props.newNote(this.state.title);
-  //   this.setState({ title: null, addingNote: false });
-  // };
-
-  // selectNote = (n, i) => this.props.selectNote(n, i);
-  // deleteNote = (note) => this.props.deleteNote(note);
 };
 
-export default withStyles(sidebarStyles)(NotesForm);
+export default NotesForm;

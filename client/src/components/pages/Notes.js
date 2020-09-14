@@ -1,36 +1,35 @@
 import React, { useState, useContext, useEffect } from "react";
-import { CSSTransition, TransitionGroup } from "react-transition-group";
-import Spinner from "../../components/layout/Spinner";
-import ReactQuill from "react-quill";
-
-import NotesContext from "../../contexts/notes/notesContext";
-import NotesForm from "../notes/NotesForm";
 import NotesList from "../notes/NotesList";
-import NotesEditor from "../notes/NotesEditor";
+import NotesForm from "../notes/NotesForm";
+// import NotesFilter from '../notes/NotesFilter';
+import NotesContext from "../../contexts/notes/notesContext";
+import AuthContext from "../../contexts/auth/authContext";
 
 const Notes = () => {
   const notesContext = useContext(NotesContext);
+  const authContext = useContext(AuthContext);
 
-  const {
-    notes,
-    currentNote,
-    filteredNote,
-    getNotes,
-    loading,
-    addingNote,
-  } = notesContext;
+  const {} = notesContext;
 
   useEffect(() => {
-    getNotes();
-    // eslint-disable-next-line
+    authContext.loadUser();
+    //eslint-disable-next-line
   }, []);
+
+  // useEffect(() => {
+  //   getNotes();
+  //   // eslint-disable-next-line
+  // }, []);
 
   return (
     <div>
-      {/* <NotesFilter /> */}
-
-      <NotesEditor />
-      <NotesList />
+      <div className="boxes">
+        <NotesForm />
+      </div>
+      <div className="boxes">
+        {/* <NotesFilter /> */}
+        <NotesList />
+      </div>
     </div>
   );
 };
