@@ -88,7 +88,8 @@ const NotesState = (props) => {
     } catch (err) {
       dispatch({
         type: NOTE_ERROR,
-        payload: err.response.msg,
+        payload: err,
+        // payload: err.response.msg,
       });
     }
     dispatch({ type: UPDATE_NOTE, payload: note });
