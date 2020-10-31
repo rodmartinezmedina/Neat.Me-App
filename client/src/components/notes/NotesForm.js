@@ -27,7 +27,6 @@ const NotesForm = (props) => {
   const { title, notecontent } = note;
 
   //USEEFFECTS
-
   useEffect(() => {
     if (currentNote !== null) {
       setNote(currentNote);

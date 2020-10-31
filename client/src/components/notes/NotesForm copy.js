@@ -72,7 +72,7 @@ const NotesForm = (props) => {
 
   return (
     <div>
-      <form onubmit={onSubmit}>
+      <form onSubmit={onSubmit}>
         <h3> {currentNote ? "Edit Note" : "Add Note"}</h3>
         <h4>Please write a note</h4>
         <input
